@@ -70,6 +70,7 @@ td:nth-child(3) {
 
 th, td {
   padding: 8px;
+  word-wrap: break-word;
 }
 
 th {
@@ -130,4 +131,14 @@ table th {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 5px;
 }
