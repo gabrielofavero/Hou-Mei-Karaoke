@@ -10,7 +10,6 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
 }
 
 header {
@@ -24,7 +23,6 @@ header {
   width: 240px;
   height: auto;
   display: block;
-  margin: 0 auto;
 }
 
 #filter-box {
@@ -53,6 +51,21 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+  width: 10%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 40%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 50%;
 }
 
 th, td {
@@ -118,11 +131,3 @@ table th {
     margin-bottom: 20px;
   }
 }
-
-@media only screen and (max-width: 970px) {
-  th:nth-child(n+3),
-  td:nth-child(n+3) {
-    display: none;
-  }
-}
-

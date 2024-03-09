@@ -1,4 +1,3 @@
-const ATT = "ATT";
 const CANTOR = "CANTOR";
 const NUMERO = "NÚMERO";
 const MUSICA = "MÚSICA";
@@ -11,26 +10,25 @@ fetch('assets/json/hou-mei.json')
 
     function createTableRow(linha) {
       const row = document.createElement('tr');
-      const att = document.createElement('td');
-      const cantor = document.createElement('td');
+      
       const numero = document.createElement('td');
+      const cantor = document.createElement('td');
       const musica = document.createElement('td');
 
-      att.style.width = '10%';
-      att.textContent = linha[ATT] || '-';
+      let musicaText = linha[MUSICA] || '-';
 
-      cantor.style.width = '40%';
-      cantor.textContent = linha[CANTOR] || '-';
+      // First letter of each word in the song name should be capitalized
 
-      numero.style.width = '10%';
+      musicaText = musicaText.toLowerCase().split(' ').map(word => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }).join(' ');
+
       numero.textContent = linha[NUMERO] || '-';
+      cantor.textContent = linha[CANTOR] || '-';
+      musica.textContent = musicaText;
 
-      musica.style.width = '40%';
-      musica.textContent = linha[MUSICA] || '-';
-
-      row.appendChild(att);
-      row.appendChild(cantor);
       row.appendChild(numero);
+      row.appendChild(cantor);
       row.appendChild(musica);
 
       return row;
@@ -53,21 +51,20 @@ fetch('assets/json/hou-mei.json')
         if (todosChecked) {
           return true;
         } else if (nacionaisChecked) {
-          return linha.TIPO === "nacional";
+          return linha.TIPO === "NACIONAL";
         } else if (internacionaisChecked) {
-          return linha.TIPO === "internacional";
+          return linha.TIPO === "INTERNACIONAL";
         } else {
           return false;
         }
       }).filter(linha => {
-        const att = linha[ATT];
-        const cantor = linha[CANTOR].toLowerCase().replace(/[^\w\s]/g, '');
         const numero = linha[NUMERO];
+        const cantor = linha[CANTOR].toLowerCase().replace(/[^\w\s]/g, '');
         const musica = linha[MUSICA].toLowerCase().replace(/[^\w\s]/g, '');
         const queryWords = searchQuery.split(/\s+/);
 
         for (let i = 0; i < queryWords.length; i++) {
-          if (att.includes(queryWords[i]) || cantor.includes(queryWords[i]) || numero.includes(queryWords[i]) || musica.includes(queryWords[i])) {
+          if (cantor.includes(queryWords[i]) || numero.includes(queryWords[i]) || musica.includes(queryWords[i])) {
             continue;
           } else {
             return false;
@@ -91,20 +88,6 @@ fetch('assets/json/hou-mei.json')
     FILTRO_INTERNACIONAIS.addEventListener('change', filterSongs);
     FILTRO_TODOS.addEventListener('change', filterSongs);
     BARRA_PESQUISA.addEventListener('input', filterSongs);
-
-    // Make the table responsive on mobile devices
-    function makeTableResponsive() {
-      const viewportWidth = window.innerWidth;
-      const isMobile = viewportWidth < 971;
-      const isSemiMobile = viewportWidth < 1541;
-
-      if (isMobile || isSemiMobile) {
-        document.body.style.padding = '10px';
-      }
-    }
-
-    makeTableResponsive();
-    window.addEventListener('resize', makeTableResponsive);
   });
 
 
