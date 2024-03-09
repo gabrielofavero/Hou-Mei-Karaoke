@@ -4,8 +4,13 @@ body {
   padding-left: 90px;
   padding-right: 90px;
   font-family: 'Helvetica Neue', sans-serif;
-  background-color: #1c1c1c;
-  color: #fff;
+  background-image: url('../img/Background.png');
+  color: #1c1c1c;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
 }
 
 header {
@@ -59,11 +64,15 @@ th {
 }
 
 tr:nth-child(odd) {
-  background-color: #333;
+  background: rgba(170, 181, 236, 0.3);
+}
+
+tr:nth-child(even) {
+  background: rgba(202, 202, 202, 0.3);
 }
 
 tr:hover {
-  background-color: #444;
+  background: rgba(43, 57, 118, 0.5);
 }
 
 input[type="radio"] {
@@ -79,7 +88,7 @@ input[type="radio"]:focus+label {
 }
 
 table th {
-  background-color: #0d0e1d;
+  background-color: #2B3976;
   color: #fff;
 }
 
