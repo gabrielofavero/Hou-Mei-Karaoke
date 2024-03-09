@@ -4,12 +4,12 @@ body {
   padding-left: 90px;
   padding-right: 90px;
   font-family: 'Helvetica Neue', sans-serif;
-  background-image: url('https://i.imgur.com/skMRdm3.png');
-  color: #1c1c1c;
-  background-attachment: fixed;
+  background-image: url('/assets/img/Background.png');
   background-size: cover;
-  background-position: center;
+  background-position: top;
+  background-attachment: fixed;
   background-repeat: no-repeat;
+  color: #1c1c1c;
 }
 
 header {
@@ -19,7 +19,7 @@ header {
   margin-bottom: 20px;
 }
 
-#logo {
+#title {
   width: 240px;
   height: auto;
   display: block;
@@ -30,6 +30,7 @@ header {
   justify-content: center;
   align-items: center;
   margin-left: 20px;
+  font-size: 16px;
 }
 
 #filter-box label {
@@ -43,29 +44,15 @@ header {
   padding: 8px;
   font-size: 16px;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #ccc;
   outline: none;
 }
 
 table {
-  width: 100%;
+  width: 100%; 
+  table-layout: fixed;
   border-collapse: collapse;
   margin-top: 20px;
-}
-
-th:nth-child(1),
-td:nth-child(1) {
-  width: 10%;
-}
-
-th:nth-child(2),
-td:nth-child(2) {
-  width: 40%;
-}
-
-th:nth-child(3),
-td:nth-child(3) {
-  width: 50%;
 }
 
 th, td {
@@ -78,15 +65,19 @@ th {
 }
 
 tr:nth-child(odd) {
-  background: rgba(170, 181, 236, 0.3);
+  background: rgba(227, 231, 246, 0.8);
 }
 
 tr:nth-child(even) {
-  background: rgba(202, 202, 202, 0.3);
+  background: rgba(235, 236, 235, 0.8);
 }
 
-tr:hover {
-  background: rgba(43, 57, 118, 0.5);
+tr:nth-child(odd):hover {
+  background: rgba(178, 191, 238, 0.9);
+}
+
+tr:nth-child(even):hover {
+  background: rgba(201, 201, 201, 0.9);
 }
 
 input[type="radio"] {
@@ -106,7 +97,7 @@ table th {
   color: #fff;
 }
 
-@media only screen and (max-width: 1540px) {
+@media (max-width: 1540px) {
   body {
     padding: 20px;
   }
@@ -116,10 +107,11 @@ table th {
     align-items: center;
   }
 
-  #logo {
+  #title {
     width: 100%;
     max-width: 440px;
     margin: 0;
+    margin-top: 20px;
   }
 
   #filter-box {
@@ -130,7 +122,9 @@ table th {
     width: 95%;
     margin-top: 20px;
     margin-bottom: 20px;
+    text-align: center;
   }
+
 }
 
 footer {
@@ -140,5 +134,5 @@ footer {
   width: 100%;
   background-color: #f2f2f2;
   text-align: center;
-  padding: 5px;
+  padding: 2px;
 }
