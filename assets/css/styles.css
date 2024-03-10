@@ -4,10 +4,10 @@ body {
   padding-left: 90px;
   padding-right: 90px;
   font-family: 'Helvetica Neue', sans-serif;
-  background-image: url('../img/background-long.jpg');
+  background-image: url('../img/background.jpg');
   background-size: 100% auto; 
   background-position: top;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
   color: #1c1c1c;
 }
