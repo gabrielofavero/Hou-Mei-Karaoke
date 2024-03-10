@@ -4,7 +4,7 @@ body {
   padding-left: 90px;
   padding-right: 90px;
   font-family: 'Helvetica Neue', sans-serif;
-  background-image: url('/assets/img/Background.png');
+  background-image: url('../img/background.png');
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
