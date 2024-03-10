@@ -7,8 +7,8 @@ body {
   background-image: url('../img/background.png');
   background-size: 100% auto; 
   background-position: top;
-  background-attachment: fixed;
   background-repeat: repeat;
+  background-attachment: fixed;
   color: #1c1c1c;
 }
 
