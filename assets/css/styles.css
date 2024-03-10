@@ -5,10 +5,10 @@ body {
   padding-right: 90px;
   font-family: 'Helvetica Neue', sans-serif;
   background-image: url('../img/background.png');
-  background-size: cover;
+  background-size: 100% auto; 
   background-position: top;
   background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   color: #1c1c1c;
 }
 
@@ -98,6 +98,49 @@ table th {
   color: #fff;
 }
 
+#back-to-top {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  bottom: 75px;
+  right: 15px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #2B3976;
+  color: white;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  font-size: 24px;
+  transition: opacity 0.5s, visibility 0s 0.5s;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+#back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s, visibility 0s 0s;
+}
+
+#back-to-top:hover, #back-to-top:focus {
+  background-color: #384b9e;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 2px;
+}
+
 @media (max-width: 1540px) {
   body {
     padding: 20px;
@@ -126,14 +169,4 @@ table th {
     text-align: center;
   }
 
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f2f2f2;
-  text-align: center;
-  padding: 2px;
 }

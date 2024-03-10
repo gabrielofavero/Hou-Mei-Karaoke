@@ -83,11 +83,27 @@ fetch('assets/json/hou-mei.json')
 
     filterSongs();
 
-    // Add event listeners to the filter inputs and search bar
     FILTRO_NACIONAIS.addEventListener('change', filterSongs);
     FILTRO_INTERNACIONAIS.addEventListener('change', filterSongs);
     FILTRO_TODOS.addEventListener('change', filterSongs);
     BARRA_PESQUISA.addEventListener('input', filterSongs);
   });
 
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    let backToTop = document.getElementById("back-to-top");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      backToTop.classList.add("show");
+    } else {
+      backToTop.classList.remove("show");
+    }
+  }
+  
+  function topFunction() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    setTimeout(() => {
+      document.getElementById("back-to-top").classList.remove("show");
+    }, 500);
+  }
 
