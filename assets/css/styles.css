@@ -12,6 +12,17 @@ body {
   color: #1c1c1c;
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: url('../img/background.png') top center / cover no-repeat fixed;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -168,5 +179,4 @@ footer {
     margin-bottom: 20px;
     text-align: center;
   }
-
 }
