@@ -39,13 +39,12 @@ fetch('assets/json/hou-mei.json')
     const FILTRO_INTERNACIONAIS = document.querySelector('input[value="internacionais"]');
     const BARRA_PESQUISA = document.querySelector('#search-bar');
 
-
     function filterSongs() {
 
       const todosChecked = FILTRO_TODOS.checked;
       const nacionaisChecked = FILTRO_NACIONAIS.checked;
       const internacionaisChecked = FILTRO_INTERNACIONAIS.checked;
-      const searchQuery = BARRA_PESQUISA.value.trim().toLowerCase().replace(/[^\w\s]/g, '');
+      const searchQuery = formatWord(BARRA_PESQUISA.value);
 
       const filteredSongs = Object.values(data).filter(linha => {
         if (todosChecked) {
@@ -59,8 +58,8 @@ fetch('assets/json/hou-mei.json')
         }
       }).filter(linha => {
         const numero = linha[NUMERO];
-        const cantor = linha[CANTOR].toLowerCase().replace(/[^\w\s]/g, '');
-        const musica = linha[MUSICA].toLowerCase().replace(/[^\w\s]/g, '');
+        const cantor = formatWord(linha[CANTOR]);
+        const musica = formatWord(linha[MUSICA]);
         const queryWords = searchQuery.split(/\s+/);
 
         for (let i = 0; i < queryWords.length; i++) {
@@ -105,5 +104,9 @@ fetch('assets/json/hou-mei.json')
     setTimeout(() => {
       document.getElementById("back-to-top").classList.remove("show");
     }, 500);
+  }
+
+  function formatWord(word='') {
+    return word.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 
